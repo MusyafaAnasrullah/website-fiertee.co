@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIERTEE.CO</title>
+
+  <!-- FAVICON / LOGO DI TAB -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/892/892458.png" type="image/png">
+
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+    body{background:#0d0d0d;color:#fff;line-height:1.6;scroll-behavior:smooth;}
+
+    /* GOLD GRADIENT */
+    :root {
+      --gold: linear-gradient(45deg, #FFD700, #FFC300, #FFB700);
+    }
+
+    /* NAVBAR */
+    nav{
+      width:100%;position:fixed;top:0;left:0;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:15px 5%;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);
+      z-index:1000;border-bottom:1px solid #FFD70033;
+    }
+    nav h1{
+      font-size:1.4rem;
+      background:var(--gold);-webkit-background-clip:text;color:transparent;
+      font-weight:700;letter-spacing:1px;
+    }
+    nav ul{display:flex;list-style:none;}
+    nav ul li{margin-left:20px;}
+    nav ul li a{
+      text-decoration:none;color:#fff;font-weight:500;transition:.3s;
+    }
+    nav ul li a:hover{
+      color:#FFD700;
+      text-shadow:0 0 8px #FFD700;
+    }
+
+    /* HERO / HOME */
+    header{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      position:relative;
+      background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+        url('image/bg-hero.jpg') center/cover no-repeat;
+       
+      padding:0 20px;
+      overflow:hidden;
+    }
+    header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,rgba(255,215,0,0.15),transparent,rgba(255,215,0,0.15));
+      animation:shineMove 6s linear infinite;
+    }
+    @keyframes shineMove{
+      0%{transform:translateX(-100%);}
+      100%{transform:translateX(100%);}
+    }
+    header h2{
+      font-size:2.8rem;
+      background:var(--gold);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:15px;
+      text-transform:uppercase;
+      animation:shine 4s infinite linear;
+      position:relative;
+      z-index:2;
+    }
+    header p,header a{position:relative;z-index:2;}
+    header p{max-width:650px;margin-bottom:25px;}
+    header a{
+      background:var(--gold);color:#000;padding:12px 25px;border-radius:30px;
+      text-decoration:none;font-weight:600;transition:.3s;
+      box-shadow:0 0 15px #FFD70066;
+    }
+    header a:hover{box-shadow:0 0 25px #FFD700cc;transform:scale(1.05);}
+
+    /* SHINE EFFECT TEKS */
+    @keyframes shine {
+      0%{text-shadow:0 0 5px #FFD700;}
+      50%{text-shadow:0 0 20px #FFD700,0 0 30px #FFA500;}
+      100%{text-shadow:0 0 5px #FFD700;}
+    }
+
+    /* SECTIONS */
+    section{padding:80px 5%;text-align:center;}
+    section h3{
+      font-size:1.8rem;
+      background:var(--gold);-webkit-background-clip:text;color:transparent;
+      margin-bottom:15px;
+    }
+    section p{max-width:700px;margin:auto;margin-bottom:40px;}
+
+    /* ABOUT */
+    #about{
+      background:linear-gradient(135deg,#111,#1a1a1a);
+      color:#ddd;
+      border-top:1px solid #FFD70033;
+      border-bottom:1px solid #FFD70033;
+    }
+
+    /* PRODUCTS */
+    #products{
+      background:linear-gradient(to right,#000,#222);
+      border-top:1px solid #FFD70044;
+      border-bottom:1px solid #FFD70044;
+    }
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+    .card{
+      background:#1a1a1a;border-radius:15px;overflow:hidden;
+      box-shadow:0 4px 40px rgba(0,0,0,0.6);transition:.3s;cursor:pointer;
+      border:1px solid #FFD70033;
+    }
+    .card img{width:100%;height:700px;object-fit:cover;object-position:center center;}
+    .card h4{
+      margin:15px 0;font-size:1.2rem;
+      background:var(--gold);-webkit-background-clip:text;color:transparent;
+    }
+    .card p{padding:0 15px 20px;color:#ccc;}
+    .card:hover{transform:translateY(-5px);box-shadow:0 0 25px #FFD70055;}
+
+    /* TESTIMONI */
+    #testimonial{
+      background:url('image/bg-testimoni.jpg') center/cover fixed;
+      position:relative;color:#fff;
+    }
+    #testimonial::before{
+      content:"";
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,.7);
+    }
+    #testimonial h3,
+    #testimonial .testimonial{position:relative;z-index:2;}
+    .testimonial{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    .testi{
+      background:#111;border-radius:15px;padding:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.5);
+      border:1px solid #FFD70033;
+      font-style:italic;
+    }
+    .testi h5{margin-top:15px;color:#FFD700;font-size:.95rem;}
+
+    /* CONTACT */
+    #contact{
+      background:linear-gradient(135deg,#1a1a1a,#000);
+      border-top:1px solid #FFD70055;
+      border-bottom:1px solid #FFD70055;
+      color:#ccc;
+    }
+    .contact-btns{
+      margin-top:20px;
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+    .contact-btns a{
+      display:inline-block;
+      padding:12px 25px;
+      background:var(--gold);
+      color:#000;
+      font-weight:600;
+      border-radius:30px;
+      text-decoration:none;
+      box-shadow:0 0 15px #FFD70066;
+      transition:.3s;
+    }
+    .contact-btns a:hover{
+      box-shadow:0 0 25px #FFD700cc;
+      transform:scale(1.05);
+    }
+
+    /* FOOTER */
+    footer{
+      background:#000;color:#fff;padding:50px 5% 20px;margin-top:60px;text-align:left;
+      border-top:1px solid #FFD70044;
+    }
+    footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:20px;}
+    footer h4{
+      margin-bottom:15px;font-size:1.1rem;
+      background:var(--gold);-webkit-background-clip:text;color:transparent;
+    }
+    footer p,footer a{color:#ccc;text-decoration:none;font-size:.9rem;line-height:1.8;}
+    footer a:hover{color:#FFD700;text-shadow:0 0 8px #FFD700;}
+    footer .copy{text-align:center;margin-top:20px;font-size:.85rem;color:#888;}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav ul{display:none;}
+      nav h1{font-size:1.1rem;}
+      header h2{font-size:1.8rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <h1>FIERTEE.CO</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#testimonial">Testimonial</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home">
+    <h2>FIERTEE.CO</h2>
+    <p> Menciptakan Komunitas Melalui Gaya dan Budaya
+</p>
+    <a href="#products">Lihat Produk</a>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h3>Tentang Kami</h3>
+    <p>Kami menghadirkan fashion berkualitas tinggi dengan konsep eksklusif: desain berani, detail tajam, dan kenyamanan premium. FIETEE.CO dibuat untuk mereka yang ingin tampil beda dan meninggalkan kesan kuat di setiap langkah.</p>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <h3>Produk Premium</h3>
+    <div class="products">
+      <div class="card">
+        <img src="image/foto1.JPG" alt="Risol">
+      </div>
+      <div class="card">
+        <img src="image/foto2.JPG" alt="Mochi">
+      </div>
+      <div class="card">
+        <img src="image/foto3.JPEG" alt="Spaghetti">
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section id="testimonial">
+    <h3>Testimonial</h3>
+    <div class="testimonial">
+      <div class="testi">
+        “Dipakai nongkrong oke, dipakai kerja rapi, dipakai acara keluarga juga masuk. Satu baju, banyak fungsi. Ini baru worth it.”
+        <h5>- Rizky M.— Content Creator</h5>
+      </div>
+      <div class="testi">
+        “Jujur ini bukan baju biasa. Sekali pakai langsung kerasa bedanya. Bahannya adem, jatuhnya rapi, dan yang paling gila: dipakai seharian tetap nyaman. Ini tipe baju yang bikin lo susah balik ke brand lain.”
+        <h5>- M. Arief R. — Karyawan Swasta</h5>
+      </div>
+      <div class="testi">
+        “Asli, jarang nemu brand lokal se-niat ini. Datang sesuai foto, kualitas di atas ekspektasi. Begitu dicoba, langsung ngerti kenapa FIERTEE.CO beda.”
+        <h5>- Ahmad F. Pratama — Entrepreneur Muda</h5>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h3>Hubungi Kami</h3>
+    <p>Email: fierteeeco@gmail.com | WhatsApp: +6285748730078</p>
+    <div class="contact-btns">
+      <a href="https://wa.me/6285748730078" target="_blank">PESAN SEKARANG</a>
+      
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="cols">
+      <div>
+        <h4>FIERTEE.CO</h4>
+        <p>detail adalah segalanya. Kami menggabungkan desain, kualitas bahan terbaik, dan makna di balik setiap potongan, untuk menghadirkan kaos yang tidak hanya terlihat kuat, tapi juga terasa bernilai.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#about">About</a></p>
+        <p><a href="#products">Products</a></p>
+        <p><a href="#testimonial">Testimonial</a></p>
+        <p><a href="#contact">Contact</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: fierteeeco@gmail.com</p>
+        <p>Phone: +6285748730078</p>
+        <p>Alamat: Tlukan 3 Nasri sumbersari moyudan sleman Yogyakarta, Indonesia</p>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <p><a href="https://instagram.com/fiertee.co">Instagram</a></p>
+        <!-- <p><a href="">Facebook</a></p> -->
+        <!-- <p><a href="">TikTok</a></p> -->
+      </div>
+    </div>
+    <p class="copy">© 2025 FIERTEE.CO All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
